@@ -1,0 +1,38 @@
+<!doctype html>
+<h1>Your Account Details</h1>
+table(style='width: 300px;border:1px solid black;border-collapse:collapse;')
+	tr
+		td(style='border:1px solid black;font=bold') Name
+		td(style='border:1px solid black;font=bold') Email
+		td(style='border:1px solid black;font=bold') Balance
+	each user, i in userlist
+		tr
+			td(style='border:1px solid black;font=bold') #{user.nick}
+			td(style='border:1px solid black;font=bold') #{user.email}
+			td(style='border:1px solid black;font=bold') #{user.balance}
+		tr
+
+<h1>Transfer funds</h1>
+form#formTransfer(name="transfer",method="post",action="/transfer")
+		input#inputAmount(type="number", placeholder="amount", name="amount" pattern="\d+" required)
+		select(name="transferee")
+			each transferee in transferees
+				option(value='#{transferee.iduser}') #{transferee.nick}
+		input#inputUserPassword(type="password", placeholder="Password", name="password" required)
+		button#btnSubmit(type="submit") Transfer
+      
+<h1>Activities on your account</h1>
+table(style='width: 300px;border:1px solid black;border-collapse:collapse;')
+	tr
+		td(style='border:1px solid black;font=bold') From
+		td(style='border:1px solid black;font=bold') To
+		td(style='border:1px solid black;font=bold') Amount
+	each row, i in transactions
+		tr
+			td(style='border:1px solid black;font=bold') #{row.from_u}
+			td(style='border:1px solid black;font=bold') #{row.to_u}
+			td(style='border:1px solid black;font=bold') #{row.amount}
+		tr
+          
+form#formLogout(name="logout",method="post",action="/logout")
+		button#btnSubmit(type="submit") Logout

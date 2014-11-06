@@ -1,0 +1,13 @@
+<!doctype html>
+<h1>Admin Console</h1>
+table(style='width: 300px;border:1px solid black;border-collapse:collapse;')
+	tr
+		td(style='border:1px solid black;font=bold') Name
+		td(style='border:1px solid black;font=bold') Email
+		td(style='border:1px solid black;font=bold') Balance
+	each user, i in userlist
+		tr
+			td(style='border:1px solid black;font=bold') #{user.nick}
+			td(style='border:1px solid black;font=bold') #{user.email}
+			td(style='border:1px solid black;font=bold') #{user.balance}
+		tr

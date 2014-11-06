@@ -1,0 +1,15 @@
+extends layout
+block content
+	<h1>#{title}</h1>
+	form#formAddUser(name="adduser",method="post",action="/adduser")
+		input#inputUserName(type="text", placeholder="Nickname", name="nick" required)
+		input#inputUserEmail(type="email", placeholder="Email", name="email" required)
+		input#inputUserPassword(type="password", placeholder="Password", name="password" required)
+		button#btnSubmit(type="submit") Create Account
+		<p>
+
+		<h1>Existing User?</h1>
+	form#formLogin(name="login",method="post",action="/login")
+		input#inputUserEmail(type="email", placeholder="Email", name="email" required)
+		input#inputUserPassword(type="password", placeholder="Password", name="password" required)
+		button#btnSubmit(type="submit") Login
